@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace nums_bases
 {
@@ -10,6 +10,29 @@ namespace nums_bases
 			for (int i = 0; i < pow; i++)
 				ans *= bas;
 			return ans;
+		}
+		static string inba(string num , int bas)
+		{
+			int asd = int.Parse(num); 
+			string sum = "";
+			int baqy = 0 ;
+			string baqy2 = "";
+			for (  ; asd > 0 ; )
+			{
+				baqy = asd % bas;
+				if (baqy == 1 || baqy == 2 || baqy == 3 || baqy == 4 || baqy == 5 || baqy == 6 || baqy == 7 || baqy == 8 || baqy == 9)
+					baqy2 = Convert.ToString(baqy);
+				else if (baqy == 10) baqy2 = "A";
+				else if (baqy == 11) baqy2 = "B";
+				else if (baqy == 12) baqy2 = "C";
+				else if (baqy == 13) baqy2 = "D";
+				else if (baqy == 14) baqy2 = "E";
+				else if (baqy == 15) baqy2 = "F";
+
+				asd /= bas;
+				sum = baqy2 + sum;
+			}
+			return sum;
 		}
 		static int dec(string num, int bas)
 		{
@@ -42,14 +65,43 @@ namespace nums_bases
 			return sum;
 		}
 		static void Main(string[] args)
-		{
-			Console.WriteLine("Hello sir enter number");
-			string num = Console.ReadLine();
-			Console.WriteLine("enter base");
-			int bas = int.Parse(Console.ReadLine());
-			Console.WriteLine(dec(num, bas));
-			Console.ReadKey();
+		{			
+			Console.WriteLine("imprtant **********************\n 1- intger numbers omly \n 2- postive \n 3- convert only use + and the thecond number 00000\nHello sir enter number");
+
+			for (int i = 5; i > 0; i++)
+			{
+
+
+				string num = Console.ReadLine();
+				Console.WriteLine("enter base");
+				int bas = int.Parse(Console.ReadLine());
+				Console.WriteLine("enter thecond number");
+				string num2 = Console.ReadLine();
+				Console.WriteLine("enter thecond base");
+				int bas2 = int.Parse(Console.ReadLine());
+				Console.WriteLine("enter target base");
+				int bas3 = int.Parse(Console.ReadLine());
+				Console.WriteLine("-   or    +     or   *   or      /");
+				char a = char.Parse(Console.ReadLine());
+				switch (a)
+				{
+					case '+': Console.WriteLine(inba((Convert.ToString((dec(num, bas) + dec(num2, bas2)))), bas3)); break;
+					case '-': Console.WriteLine(inba((Convert.ToString((dec(num, bas) - dec(num2, bas2)))), bas3)); break;
+					case '*': Console.WriteLine(inba((Convert.ToString((dec(num, bas) * dec(num2, bas2)))), bas3)); break;
+					case '/': Console.WriteLine(inba((Convert.ToString((dec(num, bas) / dec(num2, bas2)))), bas3)); break;
+
+				}
+				Console.WriteLine("again ? y / n");
+				char asdf = char.Parse(Console.ReadLine());
+				if (asdf == 'y' || asdf == 'Y')
+					Console.WriteLine("entre first number");
+				else if (asdf == 'N' || asdf == 'n')
+					break;
+			}
+			
 			Console.WriteLine("by : Smile Man ^_^\n team : Red Planet");
+Console.ReadKey();
 		}
 	}
 }
+
