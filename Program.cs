@@ -20,7 +20,7 @@ namespace nums_bases
 			for (  ; asd > 0 ; )
 			{
 				baqy = asd % bas;
-				if (baqy == 1 || baqy == 2 || baqy == 3 || baqy == 4 || baqy == 5 || baqy == 6 || baqy == 7 || baqy == 8 || baqy == 9)
+				if (baqy == 0 || baqy == 1 || baqy == 2 || baqy == 3 || baqy == 4 || baqy == 5 || baqy == 6 || baqy == 7 || baqy == 8 || baqy == 9)
 					baqy2 = Convert.ToString(baqy);
 				else if (baqy == 10) baqy2 = "A";
 				else if (baqy == 11) baqy2 = "B";
